@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+import { clone } from "lodash";
 
 import "../assets/styles/components/Register.css";
 
@@ -23,7 +24,12 @@ const Register = (props) => {
     alert(`Información enviada: ${JSON.stringify(form)}`);
     console.log(form.birthdate);
     let dateFormated = moment(form.birthdate).format("MMM Do YY");
-    alert(`Fecha formateada con momentjs: ${dateFormated}`);
+    alert(`Fecha formateada con MOMENTJS: ${dateFormated}`);
+    let copiedData = clone(form);
+    alert(
+      `Estos datos fueron clonados con LODASH: ${JSON.stringify(copiedData)}`
+    );
+    console.log(copiedData);
   };
 
   return (
