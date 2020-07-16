@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 
 import "../assets/styles/components/Register.css";
 
@@ -19,8 +20,10 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
     alert(`Información enviada: ${JSON.stringify(form)}`);
+    console.log(form.birthdate);
+    let dateFormated = moment(form.birthdate).format("MMM Do YY");
+    alert(`Fecha formateada con momentjs: ${dateFormated}`);
   };
 
   return (
